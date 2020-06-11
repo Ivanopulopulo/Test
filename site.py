@@ -2,7 +2,7 @@ import socket
 import threading
 
 def domain_in(name):
-    i = socket.gethostbyname(name)
+    i = socket.gethostbyname(name) # получаем IP домена
     print(i)
 domen = input("Введите адресс сайта оригинала без доменной зоны: ")
 
@@ -12,7 +12,7 @@ i=0
 n=0
 m=0
 success = []
-while n < len(s1):
+while n < len(s1):   #генератор добавления одного символа в конец домена
     n += 1
     if (n == len(s1)):
         m+=1
@@ -31,7 +31,7 @@ while n < len(s1):
         print("NOT FOUND")
         pass
     name = domen
-while i < len(domen):
+while i < len(domen):  #генератор удаления одного символа в домене
     i+=1
     if(i == len(domen)):
         i=0
@@ -44,13 +44,13 @@ while i < len(domen):
     print(name)
     try:
         domain_in(name)
-        success.append(name)
+        success.append(name) #добавляю в список
     except:
         print("NOT FOUND")
-        pass
-    name = domen
+        pass 
+    name = domen #коряво обнуляю переменную
     
-while i < len(domen):
+while i < len(domen):  # генератор добавления поддомена (точки)
     i+=1
     if(i == len(domen)):
         i=1
